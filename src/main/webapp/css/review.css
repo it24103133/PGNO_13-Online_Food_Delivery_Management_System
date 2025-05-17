@@ -1,0 +1,78 @@
+/* Review Form */
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.rating-container .stars {
+    cursor: pointer;
+}
+
+.rating-container .stars i {
+    color: #ddd;
+    margin-right: 5px;
+    transition: color 0.2s;
+}
+
+.rating-container .stars i:hover,
+.rating-container .stars i.hover {
+    color: #ffc107 !important;
+}
+
+.rating-container .stars i.active {
+    color: #ffc107 !important;
+}
+
+/* Review Cards */
+.review-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+}
+
+.review-card:last-child {
+    margin-bottom: 0;
+}
+
+.review-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.review-card .text-muted {
+    font-size: 0.85rem;
+}
+
+.review-card .food-rating,
+.review-card .delivery-rating {
+    margin-bottom: 0.5rem;
+}
+
+.review-card .review-comments {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid #0d6efd;
+}
+
+/* Rating Display */
+.display-4 {
+    font-weight: 600;
+}
+
+/* Modal Stars */
+.modal .stars {
+    font-size: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .rating-container .stars i {
+        font-size: 1.5rem;
+    }
+
+    .review-card .row > div {
+        margin-bottom: 1rem;
+    }
+}
