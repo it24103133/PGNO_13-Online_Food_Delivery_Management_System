@@ -1,33 +1,3 @@
-//package com.fooddelivery.controller;
-//
-//import com.fooddelivery.util.FileHandler;
-//import com.fooddelivery.model.Restaurant;
-//import jakarta.servlet.http.HttpServlet;
-//import jakarta.servlet.http.HttpServletRequest;
-//import jakarta.servlet.http.HttpServletResponse;
-//
-//public class RestaurantServlet extends HttpServlet {
-//    private static final String FILE_NAME = "restaurants.txt";
-//
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-//        // Create restaurant from request parameters
-//        Restaurant restaurant = new Restaurant(
-//                request.getParameter("name"),
-//                request.getParameter("cuisineType"),
-//                request.getParameter("address")
-//                // Add other parameters...
-//        );
-//
-//        // Save to file
-//        FileHandler.appendToFile(FILE_NAME, restaurant.toFileString());
-//    }
-//
-//    // Add methods for update, delete, etc.
-//}
-
-
-
-
 package com.fooddelivery.online_food_delivery_management_system.controller;
 
 import com.fooddelivery.online_food_delivery_management_system.model.Restaurant;
