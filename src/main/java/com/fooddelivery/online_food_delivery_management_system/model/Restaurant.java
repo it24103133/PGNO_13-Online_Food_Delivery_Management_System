@@ -123,4 +123,8 @@ public class Restaurant implements Serializable {
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 837ed9439f5189bfab94debcf082f5959dc550da
