@@ -1,0 +1,122 @@
+.payment-methods .form-check {
+    padding-left: 2.5em;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+}
+
+.payment-methods .form-check-input {
+    width: 1.5em;
+    height: 1.5em;
+    margin-left: -2.5em;
+    margin-top: 0.25em;
+}
+
+.payment-methods .form-check-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card-details {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Payment Receipt Page */
+.receipt-header {
+    border-bottom: 2px dashed #dee2e6;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.method-display {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.amount-paid {
+    border-left: 4px solid #28a745;
+}
+
+.status-badge .badge {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Payment History Page */
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-details .row > div {
+        margin-bottom: 1rem;
+    }
+
+    .table-responsive {
+        border: none;
+    }
+}
+
+/* Payment Processing Page */
+.payment-processing {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.payment-details {
+    border-left: 4px solid #0d6efd;
+}
+
+/* Payment Card Component */
+.payment-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.payment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.payment-card .card-title {
+    font-size: 1.1rem;
+}
+
+.payment-card .payment-method {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.payment-card small.text-muted {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Animation for processing page */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.payment-processing h2 {
+    animation: pulse 2s infinite;
+}
