@@ -1,0 +1,60 @@
+/* Menu Item Cards */
+.menu-item-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item-card .card-footer {
+    border-top: none;
+    background-color: white;
+}
+
+/* Badges for special attributes */
+.badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Image Preview */
+#imagePreview img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .menu-item-card .card-img-top {
+        height: 150px;
+    }
+
+    .menu-item-card .card-footer .btn {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+}
