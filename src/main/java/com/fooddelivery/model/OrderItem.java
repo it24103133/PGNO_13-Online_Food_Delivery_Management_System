@@ -1,32 +1,69 @@
-package com.fooddelivery.model;
+package com.restaurant.model;
 
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
-
-@Entity
-@Table(name = "order_items")
-@Data
-@NoArgsConstructor
 public class OrderItem {
-    @Id
-    private String id;
-    private String menuItemId;
-    private String name;
+    private int id;
+    private int menuItemId;
+    private String menuItemName;
     private double price;
     private int quantity;
-    private String specialInstructions;
 
-    public OrderItem(String menuItemId, String name, double price, int quantity) {
-        this.id = UUID.randomUUID().toString();
+    public OrderItem(int id, int menuItemId, String menuItemName, double price, int quantity) {
+        this.id = id;
         this.menuItemId = menuItemId;
-        this.name = name;
+        this.menuItemName = menuItemName;
         this.price = price;
         this.quantity = quantity;
     }
-}
+
+    public OrderItem(int menuItemId, String menuItemName, double price, int quantity) {
+        this.menuItemId = menuItemId;
+        this.menuItemName = menuItemName;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getMenuItemId() {
+        return menuItemId;
+    }
+
+    public void setMenuItemId(int menuItemId) {
+        this.menuItemId = menuItemId;
+    }
+
+    public String getMenuItemName() {
+        return menuItemName;
+    }
+
+    public void setMenuItemName(String menuItemName) {
+        this.menuItemName = menuItemName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getTotalPrice() {
+        return price * quantity;
+    }
+} 
