@@ -1,61 +1,120 @@
-package com.fooddelivery.model;
+package com.restaurant.model;
 
-mport lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-@Entity
-@Table(name = "orders")
-@Data
-@NoArgsConstructor
 public class Order {
-    @Id
-    private String id;
-
-    private String userId;
-    private String restaurantId;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "order_id")
-    private List<OrderItem> items = new ArrayList<>();
-
+    private int id;
+    private int customerId;
+    private String customerName;
+    private String customerAddress;
+    private String customerPhone;
+    private List<OrderItem> items;
     private double totalAmount;
-    private String deliveryAddress;
-    private String paymentMethod;
+    private String status; // PENDING, PREPARING, OUT_FOR_DELIVERY, DELIVERED, CANCELLED
+    private String orderDate;
+    private String deliveryDate;
 
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    public Order(int id, int customerId, String customerName, String customerAddress, String customerPhone) {
+        this.id = id;
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerPhone = customerPhone;
+        this.items = new ArrayList<>();
+        this.status = "PENDING";
+        this.orderDate = java.time.LocalDateTime.now().toString();
+    }
 
-    private LocalDateTime createdAt;
-    private String deliveryInstructions;
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
 
-    public Order(String userId, String restaurantId, String deliveryAddress) {
-        this.id = "ORD-" + UUID.randomUUID().toString().substring(0, 8);
-        this.userId = userId;
-        this.restaurantId = restaurantId;
-        this.deliveryAddress = deliveryAddress;
-        this.status = OrderStatus.PENDING;
-        this.createdAt = LocalDateTime.now();
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
+    }
+
+    public String getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
+        calculateTotal();
     }
 
     public void addItem(OrderItem item) {
-        items.add(item);
+        this.items.add(item);
         calculateTotal();
     }
 
-    public void removeItem(String itemId) {
-        items.removeIf(item -> item.getId().equals(itemId));
-        calculateTotal();
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+        if (status.equals("DELIVERED")) {
+            this.deliveryDate = java.time.LocalDateTime.now().toString();
+        }
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public String getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
     private void calculateTotal() {
         this.totalAmount = items.stream()
-                .mapToDouble(item -> item.getPrice() * item.getQuantity())
+                .mapToDouble(OrderItem::getTotalPrice)
                 .sum();
     }
-}
+} 
